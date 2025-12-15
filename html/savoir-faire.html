@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notre Savoir-Faire - Les Jardins de Marie</title>
-    <link rel="stylesheet" href="/asset/css/styles.css">
+    <link rel="stylesheet" href="../asset/css/styles.css">
 </head>
 <body>
     <header>
@@ -15,10 +15,10 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="/index.html">Accueil</a></li>
-                    <li><a href="/html/produits.html">Nos Produits</a></li>
-                    <li><a href="/html/savoir-faire.html" class="active">Notre Savoir-Faire</a></li>
-                    <li><a href="/html/contact.html">Contact</a></li>
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="produits.html">Nos Produits</a></li>
+                    <li><a href="savoir-faire.html" class="active">Notre Savoir-Faire</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -28,7 +28,7 @@
         <section class="producer-portrait">
             <div class="container">
                 <div class="portrait-image">
-                    <img src="/asset/img/tracteur.webp" alt="Marie dans ses champs">
+                    <img src="../asset/img/tracteur.webp" alt="Marie dans ses champs">
                 </div>
             </div>
         </section>
@@ -68,22 +68,22 @@
                 <h2>Notre Ferme en Images</h2>
                 <div class="gallery-grid">
                     <div class="gallery-item">
-                        <img src="/asset/img/present.webp" alt="Les champs au lever du soleil">
+                        <img src="../asset/img/present.webp" alt="Les champs au lever du soleil">
                     </div>
                     <div class="gallery-item">
-                        <img src="/asset/img/tracteur.webp" alt="Récolte des légumes">
+                        <img src="../asset/img/tracteur.webp" alt="Récolte des légumes">
                     </div>
                     <div class="gallery-item">
-                        <img src="/asset/img/bio-3.webp" alt="Les serres de culture">
+                        <img src="../asset/img/bio-3.webp" alt="Les serres de culture">
                     </div>
                     <div class="gallery-item">
-                        <img src="/asset/img/bio-4.webp" alt="Préparation des paniers">
+                        <img src="../asset/img/bio-4.webp" alt="Préparation des paniers">
                     </div>
                     <div class="gallery-item">
-                        <img src="/asset/img/tomate-ancienne.webp" alt="Tomates en culture">
+                        <img src="../asset/img/tomate-ancienne.webp" alt="Tomates en culture">
                     </div>
                     <div class="gallery-item">
-                        <img src="/asset/img/carottes-multicolores.webp" alt="Carottes fraîchement récoltées">
+                        <img src="../asset/img/carottes-multicolores.webp" alt="Carottes fraîchement récoltées">
                     </div>
                 </div>
             </div>
@@ -145,9 +145,16 @@
 
     <script>
 
-        fetch("/html/footer.html")
+        fetch("footer.html")
         .then(response => response.text())
-        .then(data => document.getElementById("footer").innerHTML = data);
+        .then(data => {
+            document.getElementById("footer").innerHTML = data;
+            document.querySelectorAll("#footer a").forEach(a => {
+                let href = a.getAttribute("href");
+                if(href === "index.html") a.setAttribute("href", "../index.html");
+                if(href.startsWith("html/")) a.setAttribute("href", href.replace("html/", ""));
+            });
+        });
 
         const burger = document.getElementById('burger');
         const nav = document.getElementById('nav');
