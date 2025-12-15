@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contactez Les Jardins de Marie à Lille pour vos commandes de légumes bio et vos visites de la ferme.">
+    <meta name="description"
+        content="Contactez Les Jardins de Marie à Lille pour vos commandes de légumes bio et vos visites de la ferme.">
     <title>Contact & Accès - Les Jardins de Marie</title>
     <link rel="stylesheet" href="../asset/css/styles.css">
     <link rel="icon" type="image/png" href="../asset/img/logo-jardin-de-marie.ico">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
     <div id="header"></div>
 
@@ -28,12 +33,14 @@
 
                         <div class="info-block">
                             <h3>Adresse</h3>
-                            <p>
-                                Les Jardins de Marie<br>
-                                Faubourg des Postes<br>
-                                59000 Lille<br>
-                                Hauts-de-France
-                            </p>
+                            <address>
+                                <p>
+                                    Les Jardins de Marie<br>
+                                    Faubourg des Postes<br>
+                                    59000 Lille<br>
+                                    Hauts-de-France
+                                </p>
+                            </address>
                         </div>
 
                         <div class="info-block">
@@ -109,13 +116,8 @@
                 <div class="map-container">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2529.847396712853!2d3.057256!3d50.629250!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c2d5f5e5e5e5e5%3A0x5e5e5e5e5e5e5e5e!2sJ26X%2BHC%20Lille%2C%20France!5e0!3m2!1sfr!2sfr!4v1234567890123!5m2!1sfr!2sfr"
-                        width="100%"
-                        height="450"
-                        style="border:0;"
-                        allowfullscreen=""
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
-                        title="Carte de localisation des Jardins de Marie">
+                        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" title="Carte de localisation des Jardins de Marie">
                     </iframe>
                 </div>
                 <div class="map-info">
@@ -131,19 +133,20 @@
     <div id="footer"></div>
 
     <script>
-  // On attend que la page soit complètement chargée
-        document.addEventListener("DOMContentLoaded", function() {
+        // On attend que la page soit complètement chargée
+        document.addEventListener("DOMContentLoaded", function () {
             const form = document.querySelector(".contact-form");
 
-            form.addEventListener("submit", function(e) {
+            form.addEventListener("submit", function (e) {
                 e.preventDefault(); // Empêche le rechargement
                 alert("✅ Votre message a été envoyé avec succès !");
                 form.reset(); // Vide les champs
             });
         });
-        </script>
+    </script>
 
     <script defer src="../asset/js/layout.js"></script>
     <script defer src="../asset/js/cart.js"></script>
 </body>
+
 </html>

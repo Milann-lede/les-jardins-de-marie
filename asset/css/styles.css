@@ -22,8 +22,17 @@
   box-sizing: border-box;
 }
 
+figure {
+    margin: 0;
+    padding: 0;
+}
+
+address {
+    font-style: normal;
+}
+
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
   line-height: 1.6;
   color: var(--text-dark);
   font-size: 16px;
