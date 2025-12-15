@@ -121,7 +121,8 @@ nav a.active {
 
 .hero {
     background: linear-gradient(rgba(45, 80, 22, 0.7), rgba(45, 80, 22, 0.7)),
-                url('/asset/img/present.webp') center/cover;
+                url('../img/present.webp')
+ center/cover;
     color: var(--white);
     padding: var(--spacing-xl) var(--spacing-md);
     text-align: center;
