@@ -139,6 +139,8 @@ const processFragmentContent = (html, prefix) => {
   return html
     // Handle asset/ paths (images, styles, scripts)
     .replace(/(href|src|srcset)="asset\//g, `$1="${prefix}asset/`)
+    // Handle secondary paths in srcset (e.g. ", asset/img/...")
+    .replace(/,\s*asset\//g, `, ${prefix}asset/`)
     // Handle html/ paths (links to other pages)
     .replace(/(href|src)="html\//g, `$1="${prefix}html/`)
     // Handle index.html (link to home)
@@ -154,7 +156,7 @@ const loadHeader = () => {
   // If sub: ../html/header.html
   const url = `${prefix}html/header.html`;
 
-  fetchFragment(url, "layout:header")
+  fetchFragment(url, "layout:header:v4")
     .then((html) => {
       const processedHtml = processFragmentContent(html, prefix);
       mountFragment("#header", processedHtml, (container) => {
@@ -176,7 +178,7 @@ const loadFooter = () => {
   const prefix = getPathPrefix();
   const url = `${prefix}html/footer.html`;
 
-  fetchFragment(url, "layout:footer")
+  fetchFragment(url, "layout:footer:v4")
     .then((html) => {
       const processedHtml = processFragmentContent(html, prefix);
       mountFragment("#footer", processedHtml);
