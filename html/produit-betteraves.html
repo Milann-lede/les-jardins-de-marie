@@ -3,43 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salades de Saison - Les Jardins de Marie</title>
+    <meta name="description" content="Betteraves rouges bio des Jardins de Marie, sucrées et idéales pour salades ou jus maison.">
+    <title>Betteraves Rouges - Les Jardins de Marie</title>
     <link rel="stylesheet" href="../asset/css/styles.css">
+    <link rel="icon" type="image/png" href="../asset/img/logo-jardin-de-marie.ico">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <h2>Les Jardins de Marie</h2>
-                <p class="tagline">Maraîcher Bio</p>
-            </div>
-
-            <nav id="nav">
-                <ul>
-                    <li><a href="../index.html">Accueil</a></li>
-                    <li><a href="produits.html" class="active" >Nos Produits</a></li>
-                    <li><a href="savoir-faire.html">Notre Savoir-Faire</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-
-            <!-- Bouton burger -->
-            <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </header>
+    <div id="header"></div>
 
     <main>
         <section class="product-detail">
             <div class="container">
                 <div class="product-layout">
                     <div class="product-gallery">
-                        <img src="../asset/img/betteraves-rouge.webp" alt="Salades fraîches">
+                        <img
+                            loading="lazy"
+                            decoding="async"
+                            src="../asset/img/betteraves-rouge-480.jpg"
+                            srcset="../asset/img/betteraves-rouge-480.jpg 480w, /asset/img/betteraves-rouge-960.jpg 960w"
+                            sizes="(min-width: 1024px) 540px, (min-width: 768px) 70vw, 100vw"
+                            width="480"
+                            height="480"
+                            alt="Salades fraîches"
+                        >
                     </div>
-                    <div class="product-info">
+                    <div
+                        class="product-info"
+                        data-product-id="betteraves-rouges"
+                        data-product-name="Betteraves Rouges"
+                        data-product-price="2,90€"
+                        data-product-price-label="2,90€ / kg"
+                    >
                         <h1>Betteraves Rouges</h1>
                         <p class="product-description">
                             Nos betteraves rouges sont récoltées à pleine maturité pour préserver toute leur douceur et leur richesse en saveurs. Rondes ou allongées, elles se déclinent en plusieurs variétés selon la saison. Fondantes et naturellement sucrées, elles se dégustent aussi bien crues que cuites, en salade, en carpaccio ou rôties au four. Un légume racine haut en couleur, symbole de vitalité et de gourmandise.                        </p>
@@ -58,11 +52,12 @@
 
                         <div class="product-price">
                             <span class="price-label">Prix:</span>
-                            <span class="price-value">3,50€ / pièce</span>
+                            <span class="price-value">2,90€ / kg</span>
                         </div>
 
                         <div class="product-actions">
-                            <a href="contact.html" class="btn btn-primary">Commander</a>
+                            <button type="button" class="btn btn-primary" data-add-to-cart>Ajouter au panier</button>
+                            <a href="contact.html" class="btn btn-secondary">Commander</a>
                             <a href="produits.html" class="btn btn-secondary">Voir tous les produits</a>
                         </div>
                     </div>
@@ -73,35 +68,8 @@
 
     <div id="footer"></div>
 
-    <script>
-
-        const burger = document.getElementById('burger');
-        const nav = document.getElementById('nav');
-
-        burger.addEventListener('click', () => {
-            const expanded = burger.getAttribute('aria-expanded') === 'true';
-            burger.setAttribute('aria-expanded', String(!expanded));
-            nav.classList.toggle('open');
-        });
-
-        // Fermer le menu quand on clique sur un lien
-        nav.querySelectorAll('a').forEach(a => {
-            a.addEventListener('click', () => {
-                burger.setAttribute('aria-expanded','false');
-                nav.classList.remove('open');
-            });
-        });
-
-        fetch("footer.html")
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById("footer").innerHTML = data;
-            document.querySelectorAll("#footer a").forEach(a => {
-                let href = a.getAttribute("href");
-                if(href === "index.html") a.setAttribute("href", "../index.html");
-                if(href.startsWith("html/")) a.setAttribute("href", href.replace("html/", ""));
-            });
-        });
-    </script>
+    <script defer src="../asset/js/layout.js"></script>
+    <script defer src="../asset/js/cart.js"></script>
+    <script defer src="../asset/js/cookies.js"></script>
 </body>
 </html>

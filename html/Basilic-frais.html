@@ -3,43 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Basilic frais bio des Jardins de Marie, parfumé et récolté le matin pour sublimer vos plats.">
     <title>Basilic Frais - Les Jardins de Marie</title>
     <link rel="stylesheet" href="../asset/css/styles.css">
+    <link rel="icon" type="image/png" href="../asset/img/logo-jardin-de-marie.ico">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <h2>Les Jardins de Marie</h2>
-                <p class="tagline">Maraîcher Bio</p>
-            </div>
-
-            <nav id="nav">
-                <ul>
-                    <li><a href="../index.html">Accueil</a></li>
-                    <li><a href="produits.html" class="active" >Nos Produits</a></li>
-                    <li><a href="savoir-faire.html">Notre Savoir-Faire</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-
-            <!-- Bouton burger -->
-            <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </header>
+    <div id="header"></div>
 
     <main>
         <section class="product-detail">
             <div class="container">
                 <div class="product-layout">
                     <div class="product-gallery">
-                        <img src="../asset/img/Basilic-Frais.webp" alt="Basilic frais du jardin">
+                        <img
+                            loading="lazy"
+                            decoding="async"
+                            src="../asset/img/Basilic-Frais-480.jpg"
+                            srcset="../asset/img/Basilic-Frais-480.jpg 480w, /asset/img/Basilic-Frais-960.jpg 960w"
+                            sizes="(min-width: 1024px) 540px, (min-width: 768px) 70vw, 100vw"
+                            width="480"
+                            height="320"
+                            alt="Basilic frais du jardin"
+                        >
                     </div>
-                    <div class="product-info">
+                    <div
+                        class="product-info"
+                        data-product-id="basilic-frais"
+                        data-product-name="Basilic Frais"
+                        data-product-price="1,50€"
+                        data-product-price-label="1,50€ / bouquet"
+                    >
                         <h1>Basilic Frais</h1>
                         <p class="product-description">
                             Notre basilic frais est cultivé avec soin pour offrir un parfum intense et des feuilles tendres, idéales pour rehausser vos plats d’été. Parfait pour les salades, les pestos ou en accompagnement de tomates et mozzarella.
@@ -64,7 +58,8 @@
                         </div>
 
                         <div class="product-actions">
-                            <a href="contact.html" class="btn btn-primary">Commander</a>
+                            <button type="button" class="btn btn-primary" data-add-to-cart>Ajouter au panier</button>
+                            <a href="contact.html" class="btn btn-secondary">Commander</a>
                             <a href="produits.html" class="btn btn-secondary">Voir tous les produits</a>
                         </div>
                     </div>
@@ -75,35 +70,8 @@
 
     <div id="footer"></div>
 
-    <script>
-
-        const burger = document.getElementById('burger');
-        const nav = document.getElementById('nav');
-
-        burger.addEventListener('click', () => {
-            const expanded = burger.getAttribute('aria-expanded') === 'true';
-            burger.setAttribute('aria-expanded', String(!expanded));
-            nav.classList.toggle('open');
-        });
-
-        // Fermer le menu quand on clique sur un lien
-        nav.querySelectorAll('a').forEach(a => {
-            a.addEventListener('click', () => {
-                burger.setAttribute('aria-expanded','false');
-                nav.classList.remove('open');
-            });
-        });
-
-        fetch("footer.html")
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById("footer").innerHTML = data;
-            document.querySelectorAll("#footer a").forEach(a => {
-                let href = a.getAttribute("href");
-                if(href === "index.html") a.setAttribute("href", "../index.html");
-                if(href.startsWith("html/")) a.setAttribute("href", href.replace("html/", ""));
-            });
-        });
-    </script>
+    <script defer src="../asset/js/layout.js"></script>
+    <script defer src="../asset/js/cart.js"></script>
+    <script defer src="../asset/js/cookies.js"></script>
 </body>
 </html>

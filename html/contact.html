@@ -3,34 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contactez Les Jardins de Marie à Lille pour vos commandes de légumes bio et vos visites de la ferme.">
     <title>Contact & Accès - Les Jardins de Marie</title>
     <link rel="stylesheet" href="../asset/css/styles.css">
+    <link rel="icon" type="image/png" href="../asset/img/logo-jardin-de-marie.ico">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <h2>Les Jardins de Marie</h2>
-                <p class="tagline">Maraîcher Bio</p>
-            </div>
-
-            <nav id="nav">
-                <ul>
-                    <li><a href="../index.html">Accueil</a></li>
-                    <li><a href="produits.html">Nos Produits</a></li>
-                    <li><a href="savoir-faire.html">Notre Savoir-Faire</a></li>
-                    <li><a href="contact.html" class="active">Contact</a></li>
-                </ul>
-            </nav>
-
-            <!-- Bouton burger -->
-            <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </header>
+    <div id="header"></div>
 
     <main>
         <section class="page-header">
@@ -151,105 +130,20 @@
     <div id="footer"></div>
 
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const form = document.querySelector(".contact-form");
-        const status = document.createElement("p"); // pour afficher le statut
-        form.appendChild(status);
+  // On attend que la page soit complètement chargée
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.querySelector(".contact-form");
 
-        // Fonction pour valider l'email
-        function validateEmail(email) {
-            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-        }
-
-        // Fonction pour afficher les erreurs
-        function setError(field, message) {
-            const input = form.querySelector(`[name="${field}"]`);
-            if(input) {
-                let errorElem = input.nextElementSibling;
-                if(!errorElem || !errorElem.classList.contains('error-message')) {
-                    errorElem = document.createElement('p');
-                    errorElem.classList.add('error-message');
-                    input.parentNode.appendChild(errorElem);
-                }
-                errorElem.textContent = message;
-            }
-        }
-
-        // Supprimer les messages d'erreur existants
-        function clearErrors() {
-            form.querySelectorAll('.error-message').forEach(e => e.remove());
-        }
-
-        form.addEventListener("submit", function(e){
-            e.preventDefault();
-            clearErrors();
-
-            const data = {
-                name: form.name.value,
-                email: form.email.value,
-                service: form.subject.value,
-                message: form.message.value
-            };
-
-            let ok = true;
-            if (!data.name || data.name.trim().length < 2){ setError('name','Nom invalide'); ok=false; }
-            if (!validateEmail(data.email)){ setError('email','Email invalide'); ok=false; }
-            if (!data.service){ setError('subject','Choisis un type de demande'); ok=false; }
-            if (!data.message || data.message.trim().length < 10){ setError('message','Minimum 10 caractères'); ok=false; }
-
-            if (!ok) return;
-
-            status.textContent = "⏳ Envoi en cours...";
-
-            emailjs.send("service_jh1yade", "template_4g6rna6", data)
-                .then(() => {
-                    status.textContent = "✅ Message envoyé avec succès !";
-                    form.reset();
-                })
-                .catch(err => {
-                    console.error(err);
-                    status.textContent = "❌ Erreur lors de l’envoi, réessaie plus tard.";
-                });
-        });
-    });
-    </script>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script>
-        emailjs.init("MHWfCFxbSaIfZJ-xN"); // ⚡ ta clé publique EmailJS
-    </script>
-
-    <script>
-
-        
-        const burger = document.getElementById('burger');
-        const nav = document.getElementById('nav');
-
-        burger.addEventListener('click', () => {
-            const expanded = burger.getAttribute('aria-expanded') === 'true';
-            burger.setAttribute('aria-expanded', String(!expanded));
-            nav.classList.toggle('open');
-        });
-
-        // Fermer le menu quand on clique sur un lien
-        nav.querySelectorAll('a').forEach(a => {
-            a.addEventListener('click', () => {
-                burger.setAttribute('aria-expanded','false');
-                nav.classList.remove('open');
+            form.addEventListener("submit", function(e) {
+                e.preventDefault(); // Empêche le rechargement
+                alert("✅ Votre message a été envoyé avec succès !");
+                form.reset(); // Vide les champs
             });
         });
+        </script>
 
-        fetch("footer.html")
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById("footer").innerHTML = data;
-            document.querySelectorAll("#footer a").forEach(a => {
-                let href = a.getAttribute("href");
-                if(href === "index.html") a.setAttribute("href", "../index.html");
-                if(href.startsWith("html/")) a.setAttribute("href", href.replace("html/", ""));
-            });
-        });
-    </script>
+    <script defer src="../asset/js/layout.js"></script>
+    <script defer src="../asset/js/cart.js"></script>
+    <script defer src="../asset/js/cookies.js"></script>
 </body>
 </html>

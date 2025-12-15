@@ -4,36 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Les Jardins de Marie, maraicher bio près de Lille : légumes de saison, circuit court et savoir-faire familial.">
     <title>Les Jardins de Marie - Maraîcher Bio | Le Panier Lillois</title>
-    <link rel="stylesheet" href="asset/css/styles.css">
+    <link rel="stylesheet" href="./asset/css/styles.css">
+    <script defer src="./asset/js/layout.js"></script>
+    <script defer src="./asset/js/cart.js"></script>
+    <link rel="icon" type="image/png" href="./asset/img/logo-jardin-de-marie.ico">
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <h2>Les Jardins de Marie</h2>
-                <p class="tagline">Maraîcher Bio</p>
-            </div>
-
-            <nav id="nav">
-                <ul>
-                    <li><a href="index.html" class="active">Accueil</a></li>
-                    <li><a href="html/produits.html">Nos Produits</a></li>
-                    <li><a href="html/savoir-faire.html">Notre Savoir-Faire</a></li>
-                    <li><a href="html/contact.html">Contact</a></li>
-                </ul>
-            </nav>
-
-            <!-- Bouton burger -->
-            <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </header>
-
+    <div id="header"></div>
 
     <main>
         <section class="hero">
@@ -56,34 +37,62 @@
             <div class="container">
                 <h2>Nos Produits Vedettes</h2>
                 <div class="product-grid">
-                    <a href="html/produit-tomates-anciennes.html" class="product-card">
-                        <div class="product-image">
-                            <img src="asset/img/tomate-ancienne.webp" alt="Tomates anciennes">
-                        </div>
-                        <h3>Tomates Anciennes</h3>
-                        <p class="price">4,50€ / kg</p>
-                    </a>
-                    <a href="html/produit-carottes-bio.html" class="product-card">
-                        <div class="product-image">
-                            <img src="asset/img/carottes-multicolores.webp" alt="Carottes bio">
-                        </div>
-                        <h3>Carottes Multicolores</h3>
-                        <p class="price">3,20€ / kg</p>
-                    </a>
-                    <a href="html/produit-courges.html" class="product-card">
-                        <div class="product-image">
-                            <img src="asset/img/courges-du-jardin.webp" alt="Courges">
-                        </div>
-                        <h3>Courges du Jardin</h3>
-                        <p class="price">2,80€ / kg</p>
-                    </a>
-                    <a href="html/produit-salades.html" class="product-card">
-                        <div class="product-image">
-                            <img src="asset/img/salades-de-saison.webp" alt="Salades">
-                        </div>
-                        <h3>Salades de Saison</h3>
-                        <p class="price">2,00€ / pièce</p>
-                    </a>
+                    <article class="product-card" data-product-id="tomates-anciennes"
+                        data-product-name="Tomates Anciennes" data-product-price="4,50€"
+                        data-product-price-label="4,50€ / kg">
+                        <a href="./html/produit-tomates-anciennes.html" class="product-card__link">
+                            <div class="product-image">
+                                <img loading="lazy" decoding="async" src="./asset/img/tomate-ancienne-480.jpg"
+                                    srcset="./asset/img/tomate-ancienne-480.jpg 480w, asset/img/tomate-ancienne-960.jpg 960w"
+                                    sizes="(min-width: 1200px) 280px, (min-width: 768px) 45vw, 90vw" width="440"
+                                    height="480" alt="Tomates anciennes">
+                            </div>
+                            <h3>Tomates Anciennes</h3>
+                            <p class="price">4,50€ / kg</p>
+                        </a>
+                    </article>
+                    <article class="product-card" data-product-id="carottes-multicolores"
+                        data-product-name="Carottes Multicolores" data-product-price="3,20€"
+                        data-product-price-label="3,20€ / kg">
+                        <a href="./html/produit-carottes-bio.html" class="product-card__link">
+                            <div class="product-image">
+                                <img loading="lazy" decoding="async" src="./asset/img/carottes-multicolores-480.jpg"
+                                    srcset="./asset/img/carottes-multicolores-480.jpg 480w, asset/img/carottes-multicolores-960.jpg 960w"
+                                    sizes="(min-width: 1200px) 280px, (min-width: 768px) 45vw, 90vw" width="480"
+                                    height="320" alt="Carottes bio">
+                            </div>
+                            <h3>Carottes Multicolores</h3>
+                            <p class="price">3,20€ / kg</p>
+                        </a>
+                    </article>
+                    <article class="product-card" data-product-id="courges-du-jardin"
+                        data-product-name="Courges du Jardin" data-product-price="2,80€"
+                        data-product-price-label="2,80€ / kg">
+                        <a href="./html/produit-courges.html" class="product-card__link">
+                            <div class="product-image">
+                                <img loading="lazy" decoding="async" src="./asset/img/courges-du-jardin-480.jpg"
+                                    srcset="./asset/img/courges-du-jardin-480.jpg 480w, asset/img/courges-du-jardin-960.jpg 960w"
+                                    sizes="(min-width: 1200px) 280px, (min-width: 768px) 45vw, 90vw" width="360"
+                                    height="480" alt="Courges">
+                            </div>
+                            <h3>Courges du Jardin</h3>
+                            <p class="price">2,80€ / kg</p>
+                        </a>
+                    </article>
+                    <article class="product-card" data-product-id="salades-de-saison"
+                        data-product-name="Salades de Saison" data-product-price="2,00€"
+                        data-product-price-label="2,00€ / pièce">
+                        <a href="./html/produit-salades.html" class="product-card__link">
+                            <div class="product-image">
+                                <img loading="lazy" decoding="async" src="./asset/img/salades-de-saison-480.jpg"
+                                    srcset="./asset/img/salades-de-saison-480.jpg 480w, asset/img/salades-de-saison-960.jpg 960w"
+                                    sizes="(min-width: 1200px) 280px, (min-width: 768px) 45vw, 90vw" width="480"
+                                    height="307" alt="Salades">
+                            </div>
+                            <h3>Salades de Saison</h3>
+                            <p class="price">2,00€ / pièce</p>
+                        </a>
+                    </article>
                 </div>
             </div>
         </section>
@@ -92,7 +101,10 @@
             <div class="container">
                 <div class="producer-intro">
                     <div class="producer-image">
-                        <img src="asset/img/tracteur.webp" alt="Marie dans ses champs">
+                        <img loading="lazy" decoding="async" src="./asset/img/tracteur-480.jpg"
+                            srcset="./asset/img/tracteur-480.jpg 480w, asset/img/tracteur-960.jpg 960w"
+                            sizes="(min-width: 1024px) 45vw, 100vw" width="480" height="320"
+                            alt="Marie dans ses champs">
                     </div>
                     <div class="producer-text">
                         <h2>Rencontrez Marie</h2>
@@ -100,7 +112,7 @@
                             partage son savoir-faire ancestral transmis de génération en génération.</p>
                         <p>Découvrez son histoire, ses méthodes de culture respectueuses de l'environnement et son
                             engagement pour une alimentation saine et locale.</p>
-                        <a href="html/savoir-faire.html" class="btn">Découvrir son histoire</a>
+                        <a href="./html/savoir-faire.html" class="btn">Découvrir son histoire</a>
                     </div>
                 </div>
             </div>
@@ -109,29 +121,6 @@
 
     <div id="footer"></div>
 
-    <script>
-
-        const burger = document.getElementById('burger');
-        const nav = document.getElementById('nav');
-
-        burger.addEventListener('click', () => {
-            const expanded = burger.getAttribute('aria-expanded') === 'true';
-            burger.setAttribute('aria-expanded', String(!expanded));
-            nav.classList.toggle('open');
-        });
-
-        // Fermer le menu quand on clique sur un lien
-        nav.querySelectorAll('a').forEach(a => {
-            a.addEventListener('click', () => {
-                burger.setAttribute('aria-expanded', 'false');
-                nav.classList.remove('open');
-            });
-        });
-
-        fetch("html/footer.html")
-            .then(response => response.text())
-            .then(data => document.getElementById("footer").innerHTML = data);
-    </script>
 </body>
 
 </html>
